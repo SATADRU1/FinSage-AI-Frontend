@@ -1,0 +1,146 @@
+/* Navbar.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(10px);
+  padding: 1rem 0;
+  z-index: 1000;
+}
+
+.navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0.7rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  color: white;
+  text-decoration: none;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 70%;
+}
+
+.login-button {
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(109, 40, 217, 0.25);
+  cursor: pointer;
+}
+
+.login-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(109, 40, 217, 0.35);
+}
+
+.chat-link {
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.logout-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.6rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: white;
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.bell-icon {
+  transition: transform 0.3s ease;
+}
+
+.bell-icon:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+  
+  .navbar-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 16px 16px;
+    padding: 1rem 0;
+    flex-direction: column;
+    gap: 1rem;
+    display: none;
+  }
+  
+  .navbar-menu.active {
+    display: flex;
+  }
+}
